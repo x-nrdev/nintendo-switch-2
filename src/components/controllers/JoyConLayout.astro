@@ -1,0 +1,29 @@
+---
+interface Props {
+    class?: string;
+    direction: "left" | "right";
+}
+
+const { class: className, direction } = Astro.props;
+
+const joyconTheme = `${direction === "left" ? "border-r-cyan-300" : "border-l-red-500"}`;
+const variant =
+    direction === "left"
+        ? "-top-1 -left-1 rounded-ss-[8rem] rounded-se-[.2rem] rounded-es-[.2rem]"
+        : "-top-1 -right-1 rounded-se-[8rem] rounded-ss-[.2rem] rounded-es-[.2rem]";
+const joyConVariant =
+    direction === "left"
+        ? "rounded-ss-[8rem] rounded-es-[8rem] border-r-2"
+        : "rounded-ee-[8rem] rounded-se-[8rem] border-l-2";
+const zIndex = direction === "left" ? "-z-10" : "-z-10";
+---
+
+<!-- JoyCon Left -->
+<div
+    class=` w-40 h-[33.5rem] bg-[hsl(220,4%,33%)]  ${joyconTheme} ${joyConVariant}`
+>
+    <!-- L/R -->
+    <div class=`absolute w-34 h-34 bg-[hsl(220,4%,20%)] ${zIndex} ${variant}` }>
+    </div>
+    <slot />
+</div>
