@@ -1,0 +1,31 @@
+---
+interface Props {
+    position: "top" | "bottom";
+    class?: string;
+}
+
+const { position, class: className } = Astro.props;
+
+const positionClass =
+    position === "top"
+        ? "top-24 right-1/4 joystick-blue"
+        : "bottom-48 left-1/4 joystick-red";
+---
+
+<div
+    class=`joystick absolute ${positionClass} w-18 h-18 rounded-full bg-[hsl(220,4%,33%)] `
+>
+</div>
+
+<style>
+    .joystick.joystick-blue {
+        box-shadow:
+            0 0 10px 0px black inset,
+            0 0 2px 4px #53eafd;
+    }
+    .joystick.joystick-red {
+        box-shadow:
+            0 0 10px 0px black inset,
+            0 0 2px 4px #fb2c36;
+    }
+</style>
