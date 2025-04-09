@@ -18,14 +18,18 @@ const positionClass =
 </div>
 
 <style>
+    .joystick {
+        --joystick-shadow: 0 0 12px 2px black inset;
+    }
+
     .joystick.joystick-blue {
         box-shadow:
-            0 0 10px 0px black inset,
-            0 0 2px 4px #53eafd;
+            var(--joystick-shadow),
+            0 0 2px 2px #53eafd;
     }
     .joystick.joystick-red {
         box-shadow:
-            0 0 10px 0px black inset,
-            0 0 2px 4px #fb2c36;
+            var(--joystick-shadow),
+            0 0 2px 2px #fb2c36;
     }
 </style>
