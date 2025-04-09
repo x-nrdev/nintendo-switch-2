@@ -13,13 +13,27 @@ const positionClass =
 ---
 
 <div
-    class=`joystick absolute ${positionClass} w-18 h-18 rounded-full bg-[hsl(220,4%,33%)] `
+    class=`joystick absolute ${positionClass} w-18 h-18 rounded-full bg-[hsl(220,4%,33%)] overflow-hidden`
 >
+    <span
+        class="cross absolute top-[50%] left-[50%] w-full h-full rounded-full text-9xl"
+        >+</span
+    >
+    <div
+        class="joystick-body absolute w-14 h-14 rounded-full bg-[hsl(220,4%,30%)]"
+    >
+    </div>
 </div>
 
 <style>
     .joystick {
         --joystick-shadow: 0 0 12px 2px black inset;
+    }
+
+    .joystick-body {
+        box-shadow: var(--joystick-shadow);
+        top: 10%;
+        left: 11%;
     }
 
     .joystick.joystick-blue {
@@ -31,5 +45,11 @@ const positionClass =
         box-shadow:
             var(--joystick-shadow),
             0 0 2px 2px #fb2c36;
+    }
+
+    .cross {
+        top: -87%;
+        left: -26%;
+        font-size: 10rem;
     }
 </style>
